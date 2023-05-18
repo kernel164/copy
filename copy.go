@@ -282,7 +282,7 @@ func onsymlink(src, dest string, opt Options) error {
 		}
 		return nil
 	case Deep:
-		orig, err := os.Readlink(src)
+		orig, err := filepath.EvalSymlinks(src)
 		if err != nil {
 			return err
 		}
